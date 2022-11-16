@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Lis 2022, 13:12
+-- Czas generowania: 16 Lis 2022, 14:20
 -- Wersja serwera: 10.4.24-MariaDB
 -- Wersja PHP: 8.0.19
 
@@ -24,13 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `loginscheme`
+-- Struktura tabeli dla tabeli `user`
 --
 
-CREATE TABLE `loginscheme` (
-  `id` int(32) NOT NULL,
-  `login` varchar(32) NOT NULL,
-  `password` varchar(32) NOT NULL,
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(128) NOT NULL,
   `firstname` varchar(32) NOT NULL,
   `lastname` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -40,9 +40,9 @@ CREATE TABLE `loginscheme` (
 --
 
 --
--- Indeksy dla tabeli `loginscheme`
+-- Indeksy dla tabeli `user`
 --
-ALTER TABLE `loginscheme`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -50,10 +50,10 @@ ALTER TABLE `loginscheme`
 --
 
 --
--- AUTO_INCREMENT dla tabeli `loginscheme`
+-- AUTO_INCREMENT dla tabeli `user`
 --
-ALTER TABLE `loginscheme`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
