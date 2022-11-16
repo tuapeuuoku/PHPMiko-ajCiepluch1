@@ -11,12 +11,13 @@ class User {
         $this->password = $password;
         $this->firstName = "";
         $this->lastName = "";
+        global $db;
     }
 
     public function register() {
         $passwordHash = password_hash($this->password, PASSWORD_ARGON2I);
         $query = "INSERT INTO user VALUES (NULL, ?, ?, ?, ?)";
-        $db = new mysqli('localhost', 'root', '', 'loginForm');
+        $db = new mysqli('localhost', 'root', '', 'loginscheme');
         $preparedQuery = $db->prepare($query); 
         $preparedQuery->bind_param('ssss', $this->login, $passwordHash, 
                                             $this->firstName, $this->lastName);
@@ -25,7 +26,7 @@ class User {
 
     public function login() {
         $query = "SELECT * FROM user WHERE login = ? LIMIT 1";
-        $db = new mysqli('localhost', 'root', '', 'loginForm');
+        $db = new mysqli('localhost', 'root', '', 'loginscheme');
         $preparedQuery = $db->prepare($query); 
         $preparedQuery->bind_param('s', $this->login);
         $preparedQuery->execute();
@@ -46,6 +47,13 @@ class User {
             echo "Błędny login lub hasło!";
             return;
         }
+    }
+    public function setFirstName(string $firstname) {
+        $this->firstname = $firstName;
+        
+    }
+    public function setLastName(string $firstname) {
+        $this->lastname = $lastName;
     }
 }
 ?>
