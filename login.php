@@ -8,8 +8,8 @@ if(isset($_REQUEST['login']) && isset($_REQUEST['password'])) {
     if($user->login()) {
         //echo "Zalogowano poprawnie użytkownika: ".$user->getName();
         $v = array(
-            'message' => "Zalogowano poprawnie użytkownika: ".$user->getName(),
-        );
+            'message' => "Zalogowano poprawnie użytkownika: ".$user->getName)();
+            
         $twig->display('message.html.twig', $v);
     } else {
         //echo "Błędny login lub hasło";
