@@ -48,12 +48,12 @@ class User {
             return;
         }
     }
-    public function setFirstName(string $firstname) {
-        $this->firstname = $firstName;
+    public function setFirstName(string $firstName) {
+        $this->firstName = $firstName;
         
     }
-    public function setLastName(string $firstname) {
-        $this->lastname = $lastName;
+    public function setLastName(string $lastName) {
+        $this->lastName = $lastName;
     }
 }
 ?>
